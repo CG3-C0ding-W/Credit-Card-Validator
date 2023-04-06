@@ -1,0 +1,50 @@
+
+// Credit Card Validator.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int cc_number;
+string lh_CCNumber[4];
+string rh_CCNumber[4];
+
+
+void find_CCNumber() {
+	cout << "Credit Card Validator\n";
+	cout << "Please enter your credit card number: ";
+	cin >> cc_number;
+	cout << "Your credit card number is " << cc_number << endl;;
+}
+
+void splice_CCNumber(int input) {
+	string str_CCNumber = to_string(input);
+	int num_length = str_CCNumber.length();
+	int count = 0;
+	//cout << str_CCNumber[0];
+	for (int i = 1; i < num_length; i +=2) {
+		lh_CCNumber[count] = str_CCNumber[i];
+		cout << lh_CCNumber[count] << endl;
+		count++ ;
+	}
+	//cout << "The LH Digits are " << lh_CCNumber[0] << endl;	
+	count = 0;
+	for (int i = 0; i < num_length; i += 2) {
+		rh_CCNumber[count] = str_CCNumber[i];
+		cout << rh_CCNumber[count] << endl;
+		count++;
+	}
+	cout << "The RH Digits are " << rh_CCNumber[0] << endl;	
+}
+
+void cc_RH_LH_Sums() {
+
+}
+
+int main()
+{
+	find_CCNumber();
+	splice_CCNumber(cc_number);
+}
